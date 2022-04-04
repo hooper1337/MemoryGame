@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link type="text/css" rel="stylesheet" href="estilos/style.css" />
+    <link type="text/css"  rel="stylesheet" href="estilos/w3.css" />
+    <title>Memory Game</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <meta name="Linguagens Script@DEIS-ISEC" content="MemoryGame" />
+    <script src="js/modal.js" defer></script>
+    <script src="js/index.js" defer></script>
+
+  </head>
+
+  <body>
+    <div id="container">
+      <header>
+        <h1 class="title">Memory Game</h1>
+       <!--<h2 class="subtitle">Linguagens Script</h2>--> 
+      </header>
+      <main class="main-content">
+        <!-- Painel para escolha do nível -->
+        <section id="panel-control">
+          <h3 class="sr-only">Escolha do Nível</h3>
+          <form class="form">
+            <fieldset class="col1 form-group">
+              <label for="btLevel">Level:</label>
+              <select id="btLevel">
+                <option selected value="0">Select...</option>
+                <option value="1">Basic (2x3)</option>
+                <option value="2">Medium (3x4)</option>
+                <option value="3">Advanced (4x5)</option>
+              </select>
+            </fieldset>
+            <button type="button" id="btPlay" class="col2">Start Game</button>
+          </form>
+          <div class="form-metadata">
+            <p id="message" role="alert" class="hide">Click in Start Game!</p>
+            <dl class="col1 gameStarted list-item">
+              <dt>Time to play: </dt>
+              <dd id="gameTime">0</dd>
+            </dl>
+
+            <dl class="col2 gameStarted list-item">
+              <dt>Points TOP:</dt>
+              <dd id="pointsTop">0</dd>
+            </dl>
+            <dl class="col1 gameStarted list-item">
+              <dt>Points:</dt>
+              <dd id="points">0</dd>
+            </dl>
+            <div id="top10" class="col2">
+              <button id="btTop">Check TOP 10</button>
+            </div>
+          </div>
+        </section>
+        <!-- Painel onde aparecem as pecas de jogo  -->
+        <section class="game">
+          <h3 class="sr-only">Peças do Jogo</h3>
+          <div id="panel-game">
+
+                      <!-- As cartas ficam com duas imagens, uma sobreposta a outra. -->
+                        <div class="card" data-logo="angular">
+                            <img src="images/ls.png" class="card-back" >
+                            <img src="images/angular.png" class="card-front">
+                        </div>
+
+                        <div class="card" data-logo="bootstrap">
+                            <img src="images/ls.png" class="card-back">
+                            <img src="images/vue.png" class="card-front">
+                        </div>
+                        <div class="card" data-logo="html">
+                            <img src="images/ls.png" class="card-back">
+                            <img src="images/vue.png" class="card-front">
+                        </div>
+                        <div class="card" data-logo="javascript">
+                            <img src="images/ls.png" class="card-back">
+                            <img src="images/react.png" class="card-front">
+                        </div>
+                        <div class="card" data-logo="vue">
+                            <img src="images/ls.png" class="card-back">
+                            <img src="images/angular.png" class="card-front">
+                        </div>
+
+                        <div class="card" data-logo="react">
+                            <img src="images/ls.png" class="card-back">
+                            <img src="images/react.png" class="card-front">
+                        </div>
+          </div>
+        </section>
+      </main>
+      <!-- <footer>
+        <p>© D E I S @ I S EC</p>
+      </footer> -->
+    </div>
+
+    <div id="modal-top10" class="w3-modal" role="dialog">
+      <div class="w3-modal-content w3-card-4 w3-animate-zoom estilos">
+        <header>
+          <span
+            class="w3-button w3-display-topright closeModal"
+            data-modalid="top10"
+            >&times;</span
+          >
+          <div>TOP 10</div>
+        </header>
+        <div class="info" id="infoTop"></div>
+        <!-- <footer>
+          <p>Jogo de Memória © <em>Linguagens Script @ DEIS</em></p>
+        </footer> -->
+      </div>
+    </div>
+
+    <div id="modal-gameOver" class="w3-modal" role="dialog">
+      <div class="w3-modal-content w3-card-4 w3-animate-zoom estilos">
+        <header>
+          <span
+            class="w3-button w3-display-topright closeModal"
+            data-modalid="gameOver"
+            >&times;</span
+          >
+          <div>Finished game!</div>
+        </header>
+        <div class="info" id="messageGameOver"></div>
+        <div class="info hide" id="nickname">
+          Nick Name:
+          <input
+            type="text"
+            id="inputNick"
+            size="16"
+            placeholder="Enter your nick"
+          />
+          <button id="okTop">ok</button>
+        </div>
+        <!-- <footer>
+          <p>Jogo de Memória © <em>Linguagens Script @ DEIS</em></p>
+        </footer> -->
+      </div>
+    </div>
+  </body>
+</html>
